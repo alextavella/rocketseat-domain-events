@@ -7,6 +7,7 @@ import { InvoicePaidEvent } from "./invoice-paid";
 // Subscribers
 DomainEvents.registerSubscriber(InvoiceCreatedEvent.name, async (event) => {
   console.log("2. invoice created");
+  console.log(event);
 
   const invoice = await Repository.invoiceDB.findOne(event.invoice.id);
 
@@ -21,6 +22,7 @@ DomainEvents.registerSubscriber(InvoiceCreatedEvent.name, async (event) => {
 
 DomainEvents.registerSubscriber(InvoicePaidEvent.name, async (event) => {
   console.log("3. invoice paid");
+  console.log(event);
 
   const order = await Repository.ordersDB.findOne(event.invoice.orderId);
 
