@@ -1,5 +1,3 @@
-import { randomUUID } from "node:crypto";
-
 interface IDB<T> {
   find(): Promise<T[]>;
   findOne(id: string): Promise<T | undefined>;
